@@ -12,6 +12,10 @@ body{
 	background: radial-gradient(at top, #4682B4,#FEFFFF);
 }
 
+ol{
+	padding-inline-start: 0;
+}
+
 .container{
 	max-width: 1000px;
 	margin:0 auto;
@@ -95,13 +99,13 @@ li {
 	border-radius: 10px;
 }
 
-li:nth-child(even){
+/* li:nth-child(even){
 	transform: rotate(-0.5deg);
 }
 
 li:nth-child(odd){
 	transform: rotate(0.5deg);
-}
+} */
 
 
 .dellist{
@@ -139,8 +143,9 @@ li:nth-child(odd){
 	background-color: lightblue;
 	padding: 15px 30px 25px;
 	position: fixed;
-	top:40%;
-	left:40%;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%) ;
 	border: solid 1px rgba(0,0,0,0.5);
 	display: none;
 }
@@ -206,4 +211,30 @@ cursor: pointer;
 	100%{
 		transform: scale(1)
 	}
+}
+
+@media screen and (max-width: 767px) {
+
+	.input {
+		
+		width: 60%;
+		display: block;
+		margin:0 auto 30px;
+		
+	}
+		
+	.button,.button-clear {
+		
+		width:120px;
+		font-size: 19px;
+	}
+
+	.container{
+		padding: 50px 15px 50px;
+	}
+
+	h1 span{
+		display: block;
+	}
+	
 }

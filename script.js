@@ -11,12 +11,15 @@ let itemsArray = [];
 let saving = JSON.parse(localStorage.getItem("data"))
 
 
-
+console.log(saving)
 
 
 	// Проверка на наличие сохраненных элементов 
 
 if(localStorage.getItem('data')!=undefined){
+
+
+	
 	itemsArray = saving
 	for (let i = 0; i<saving.length;i++){
 		
@@ -53,19 +56,26 @@ function addElem(){
 
 	// Функция удаления каждого элемента 
 
-function dellists(value,index) {
+function dellists(value,) {
 
 	let dellist = document.createElement("div")
 	dellist.className = "dellist"
 	value.appendChild(dellist)
 	dellist.innerHTML ="&#10006;"
+	
 
 
 	dellist.addEventListener("click", function(){
+		
 		list.removeChild(value)
+
+		saving.splice(value,1)
+		localStorage.setItem('data',JSON.stringify(saving))
+		
 		
 	})	
 }
+
 
 	// Функция для отметки выполненных дел
 
@@ -82,6 +92,7 @@ function donelists(value) {
 		
 		value.style.backgroundColor = "#98FB98";
 		value.removeChild(donelist)
+		
 	})
 }
 
