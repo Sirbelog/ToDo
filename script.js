@@ -46,17 +46,20 @@ function addElem(){
 
 	let addlist = document.createElement('li')
 	addlist.innerHTML = input.value
+	// addlist.setAttribute("draggable","true")
 	list.appendChild(addlist)
 
 	dellists(addlist);
 	donelists(addlist);
+
+	
 	
 }
 
 
 	// Функция удаления каждого элемента 
 
-function dellists(value,) {
+function dellists(value) {
 
 	let dellist = document.createElement("div")
 	dellist.className = "dellist"
@@ -67,12 +70,21 @@ function dellists(value,) {
 
 	dellist.addEventListener("click", function(){
 		
-		list.removeChild(value)
 
-		saving.splice(value,1)
-		localStorage.setItem('data',JSON.stringify(saving))
+		for(let i = 0; i < list.childElementCount; i++){
+
+	
+			if(this.parentElement.textContent == list.children[i].textContent){
+
+				saving.splice(i ,1)
 		
-		
+				localStorage.setItem('data',JSON.stringify(saving))
+
+				list.removeChild(value)
+
+			}
+		} 
+
 	})	
 }
 
